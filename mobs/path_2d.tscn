@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7fpn0r3njp66"]
+
+[ext_resource type="PackedScene" uid="uid://b3n6jaafc1gho" path="res://Assests/character.tscn" id="1_8teub"]
+
+[sub_resource type="Curve2D" id="Curve2D_h2yge"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 64, 256, 0, 0, 0, 0, 192, 256, 0, 0, 0, 0, 1216, 256, 0, 0, 0, 0, 1216, 896, 0, 0, 0, 0, 2240, 896, 0, 0, 0, 0, 2240, 1856)
+}
+point_count = 6
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource("Curve2D_h2yge")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(64, 256)
+loop = false
+
+[node name="Soldier" parent="PathFollow2D" instance=ExtResource("1_8teub")]
