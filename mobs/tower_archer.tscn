@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://br7kokxroynss"]
+
+[ext_resource type="Texture2D" uid="uid://bj60w735qm3ao" path="res://Tilesheet/c3d45cff-4d7a-4a63-b879-41fbcab32572.png" id="1_pygxu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02teb"]
+size = Vector2(74, 74)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o2jpx"]
+radius = 448.0
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=2059997045]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=619790221]
+shape = SubResource("RectangleShape2D_02teb")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=270357312]
+position = Vector2(12.035004, 24.202972)
+
+[node name="C3d45Cff4d7a4a63B87941Fbcab32572" type="Sprite2D" parent="." unique_id=485131966]
+position = Vector2(1.5258789e-05, 0)
+rotation = 1.5707964
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("1_pygxu")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1284052091]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=885770522]
+shape = SubResource("CircleShape2D_o2jpx")
+
+[node name="Node" type="Node" parent="." unique_id=1089072948]
