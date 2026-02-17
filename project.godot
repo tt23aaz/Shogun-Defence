@@ -8,16 +8,25 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Shogun Defence"
-run/main_scene="uid://b37u0qifuqhpa"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="uid://m3w8gvmmf5a0"
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
 window/size/viewport_width=2304
-window/size/viewport_height=1296
-window/size/mode=2
-window/stretch/aspect="expand"
+window/size/viewport_height=1280
+window/size/window_width_override=1194
+window/size/window_height_override=682
+window/stretch/mode="viewport"
+
+[rendering]
+
+textures/light_projectors/filter=0

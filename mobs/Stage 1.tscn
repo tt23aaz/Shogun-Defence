@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bi15oloq2jkho"]
+
+[ext_resource type="PackedScene" uid="uid://cwy0qnmuoesr2" path="res://mobs/enemy_archer.tscn" id="1_2gbj5"]
+
+[sub_resource type="Curve2D" id="Curve2D_ig7tw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 192, 0, 0, 0, 0, 832, 192, 0, 0, 0, 0, 832, 704, 0, 0, 0, 0, 1472, 704, 0, 0, 0, 0, 1472, 1024, 0, 0, 0, 0, 2304, 1024)
+}
+point_count = 6
+
+[node name="Path2D" type="Path2D" unique_id=2111499130]
+curve = SubResource("Curve2D_ig7tw")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=614234775]
+position = Vector2(0, 192)
+loop = false
+
+[node name="EnemyArcher" parent="PathFollow2D" unique_id=1254133813 instance=ExtResource("1_2gbj5")]
+position = Vector2(64, 0)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dodklgarkqitn"]
+[gd_scene format=3 uid="uid://csttxo5pk5xvc"]
 
 [ext_resource type="Texture2D" uid="uid://l056gorkkix" path="res://Tilesheet/towerDefense_tilesheet.png" id="1_7yhko"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1n30v"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y6gks"]
 texture = ExtResource("1_7yhko")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -4424,15 +4424,14 @@ texture_region_size = Vector2i(64, 64)
 85:51/0 = 0
 86:51/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_35kre"]
+[sub_resource type="TileSet" id="TileSet_w5654"]
 tile_size = Vector2i(64, 64)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/1 = SubResource("TileSetAtlasSource_1n30v")
+sources/0 = SubResource("TileSetAtlasSource_y6gks")
 
-[node name="TileMap" type="TileMap"]
-tile_set = SubResource("TileSet_35kre")
+[node name="TileMap" type="TileMap" unique_id=1034910503]
+tile_set = SubResource("TileSet_w5654")
 rendering_quadrant_size = 64
-collision_animatable = true
 format = 2

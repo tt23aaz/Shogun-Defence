@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var path = preload("res://mobs/path_2d.tscn")
+@onready var path = preload("res://mobs/Stage 1.tscn")
 
 func _on_timer_timeout():
 	var tempPath = path.instantiate()
