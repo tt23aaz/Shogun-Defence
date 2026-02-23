@@ -4,7 +4,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_ig7tw"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 192, 0, 0, 0, 0, 832, 192, 0, 0, 0, 0, 832, 704, 0, 0, 0, 0, 1472, 704, 0, 0, 0, 0, 1472, 1024, 0, 0, 0, 0, 2304, 1024)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 192, 0, 0, 0, 0, 768, 192, 0, 0, 0, 0, 768, 704, 0, 0, 0, 0, 1408, 704, 0, 0, 0, 0, 1408, 1024, 0, 0, 0, 0, 2304, 1024)
 }
 point_count = 6
 
@@ -13,6 +13,7 @@ curve = SubResource("Curve2D_ig7tw")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=614234775]
 position = Vector2(0, 192)
+rotates = false
 loop = false
 
 [node name="EnemyArcher" parent="PathFollow2D" unique_id=1254133813 instance=ExtResource("1_2gbj5")]

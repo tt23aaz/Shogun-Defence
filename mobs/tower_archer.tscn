@@ -18,7 +18,6 @@ position = Vector2(12.035004, 24.202972)
 
 [node name="C3d45Cff4d7a4a63B87941Fbcab32572" type="Sprite2D" parent="." unique_id=485131966]
 position = Vector2(1.5258789e-05, 0)
-rotation = 1.5707964
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("1_pygxu")
 
