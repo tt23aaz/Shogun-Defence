@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://csttxo5pk5xvc" path="res://tiles/tile_map.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://bwle5q38ttn6u" path="res://path_spawner.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://br7kokxroynss" path="res://mobs/tower_archer.tscn" id="3_h2yge"]
 
 [node name="Main" type="Node2D" unique_id=261045473]
 
@@ -12,7 +13,18 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 7, 1, 65536, 7, 2, 65536, 7, 3, 6
 script = ExtResource("2_0xm2m")
 
 [node name="Timer" type="Timer" parent="PathSpawner" unique_id=1794640304]
-wait_time = 2.0
+wait_time = 1.0259999999999998
 autostart = true
+
+[node name="Towers" type="Node2D" parent="." unique_id=522388837]
+
+[node name="TowerArcher" parent="Towers" unique_id=2059997045 instance=ExtResource("3_h2yge")]
+position = Vector2(168, 308)
+
+[node name="TowerArcher2" parent="Towers" unique_id=1898537062 instance=ExtResource("3_h2yge")]
+position = Vector2(408, 304)
+
+[node name="TowerArcher3" parent="Towers" unique_id=1921403114 instance=ExtResource("3_h2yge")]
+position = Vector2(296, 56)
 
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
