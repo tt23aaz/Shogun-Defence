@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cwygqbwob2jxp"]
+
+[ext_resource type="Script" uid="uid://cnkgx5ipk71f0" path="res://Towers/tower_panel.gd" id="1_in8g1"]
+[ext_resource type="Texture2D" uid="uid://bj60w735qm3ao" path="res://Tilesheet/c3d45cff-4d7a-4a63-b879-41fbcab32572.png" id="1_j28fn"]
+
+[node name="TowerPanel" type="Panel" unique_id=235756021]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_in8g1")
+
+[node name="C3d45Cff4d7a4a63B87941Fbcab32572" type="Sprite2D" parent="." unique_id=260203449]
+position = Vector2(45, 45)
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("1_j28fn")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
