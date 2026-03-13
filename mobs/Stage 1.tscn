@@ -4,17 +4,20 @@
 
 [sub_resource type="Curve2D" id="Curve2D_ig7tw"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 192, 0, 0, 0, 0, 768, 192, 0, 0, 0, 0, 768, 704, 0, 0, 0, 0, 1408, 704, 0, 0, 0, 0, 1408, 1024, 0, 0, 0, 0, 2304, 1024)
+"points": PackedVector2Array(0, 0, 0, 0, 64, 448, 0, 0, 0, 0, 512, 448, 0, 0, 0, 0, 1024, 448, 0, 0, 0, 0, 1024, 768, 0, 0, 0, 0, 1024, 1152, 0, 0, 0, 0, 2368, 1152, 0, 0, 0, 0, 2368, 1600, 0, 0, 0, 0, 3011.404, 1600.8745, 0, 0, 0, 0, 3584, 1600)
 }
-point_count = 6
+point_count = 9
 
-[node name="Path2D" type="Path2D" unique_id=2111499130]
+[node name="Path2D" type="Path2D" unique_id=1086179089]
 curve = SubResource("Curve2D_ig7tw")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=614234775]
-position = Vector2(0, 192)
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=108609879]
+position = Vector2(64, 448)
+rotation = -0.090659894
 rotates = false
 loop = false
 
 [node name="EnemyArcher" parent="PathFollow2D" unique_id=1254133813 instance=ExtResource("1_2gbj5")]
-position = Vector2(64, 0)
+position = Vector2(-3.8146973e-06, -3.0517578e-05)
+rotation = 0.090659894
+scale = Vector2(1.0000001, 1.0000001)

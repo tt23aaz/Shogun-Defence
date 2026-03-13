@@ -4,15 +4,16 @@
 [ext_resource type="Script" uid="uid://cumflbqkej2kl" path="res://mobs/enemy_archer.gd" id="1_m0syk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m0syk"]
+radius = 11.153637
 
 [node name="EnemyArcher" type="CharacterBody2D" unique_id=1254133813]
 script = ExtResource("1_m0syk")
 
 [node name="D07a83876e034c3d9944F1e9e2Ffe3b3" type="Sprite2D" parent="." unique_id=1292272190]
-scale = Vector2(0.12, 0.122)
+scale = Vector2(0.21, 0.214)
 texture = ExtResource("1_g0cnb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=506082148]
 position = Vector2(2.4, -6.26)
-scale = Vector2(3.535, 3.535)
+scale = Vector2(6.72, 6.72)
 shape = SubResource("CircleShape2D_m0syk")
