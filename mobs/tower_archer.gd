@@ -1,15 +1,18 @@
 extends StaticBody2D
 
-
 var Bullet = preload("res://mobs/arrow.tscn")
 var bulletDamage = 5
 var pathName
 var currTargets = []
 var curr
 
+@onready var towerSprite = $ArcherSprite
+
+
 func clear_bullets():
 	for bullet in get_node("BulletContainer").get_children():
 		bullet.queue_free()
+
 
 func _on_tower_body_entered(body: Node2D) -> void:
 	if "EnemyArcher" in body.name:
@@ -30,6 +33,13 @@ func _on_tower_body_entered(body: Node2D) -> void:
 					currTarget = i.get_node("../")
 		
 		curr = currTarget
+		
+		if curr != null:
+			if curr.global_position.x < global_position.x:
+				towerSprite.flip_h = true
+			else:
+				towerSprite.flip_h = false
+		
 		pathName = currTarget.get_parent().name
 		
 		var tempBullet = Bullet.instantiate()
@@ -37,8 +47,7 @@ func _on_tower_body_entered(body: Node2D) -> void:
 		tempBullet.bulletDamage = bulletDamage
 		get_node("BulletContainer").add_child(tempBullet)
 		tempBullet.global_position = $Aim.global_position
-		
 
 
 func _on_tower_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	pass

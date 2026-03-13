@@ -18,7 +18,7 @@ shape = SubResource("RectangleShape2D_02teb")
 [node name="Aim" type="Marker2D" parent="." unique_id=270357312]
 position = Vector2(29, -14)
 
-[node name="C3d45Cff4d7a4a63B87941Fbcab32572" type="Sprite2D" parent="." unique_id=485131966]
+[node name="ArcherSprite" type="Sprite2D" parent="." unique_id=485131966]
 position = Vector2(0, 5.684342e-14)
 scale = Vector2(0.134, 0.145)
 texture = ExtResource("1_pygxu")

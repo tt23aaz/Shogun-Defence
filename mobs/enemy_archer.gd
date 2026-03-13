@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 75
-var Health = 10
+var Health = 5
 
 func _process(delta: float) -> void:
 	get_parent().set_progress(get_parent().get_progress() + speed*delta)
