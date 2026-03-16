@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cwygqbwob2jxp"]
 
 [ext_resource type="Script" uid="uid://cnkgx5ipk71f0" path="res://Towers/tower_panel.gd" id="1_in8g1"]
-[ext_resource type="Texture2D" uid="uid://bj60w735qm3ao" path="res://Tilesheet/c3d45cff-4d7a-4a63-b879-41fbcab32572.png" id="1_j28fn"]
+[ext_resource type="Texture2D" uid="uid://bj60w735qm3ao" path="res://Tilesheet/ally.png" id="1_j28fn"]
 
 [node name="TowerPanel" type="Panel" unique_id=235756021]
 custom_minimum_size = Vector2(80, 80)

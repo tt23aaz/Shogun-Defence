@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmr80lyi1eu7q"]
 
-[ext_resource type="Texture2D" uid="uid://cs6wtq8fll2g3" path="res://Tilesheet/08733c77-e205-4cb2-8bc1-3c43085d9363.png" id="1_c8hkb"]
+[ext_resource type="Texture2D" uid="uid://cs6wtq8fll2g3" path="res://Tilesheet/arrow.png" id="1_c8hkb"]
 [ext_resource type="Script" uid="uid://4ah5hkl8aft5" path="res://Towers/arrow.gd" id="1_nrif7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nrif7"]

@@ -13,11 +13,9 @@ curve = SubResource("Curve2D_ig7tw")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=108609879]
 position = Vector2(64, 448)
-rotation = -0.090659894
 rotates = false
 loop = false
 
 [node name="EnemyArcher" parent="PathFollow2D" unique_id=1254133813 instance=ExtResource("1_2gbj5")]
 position = Vector2(-3.8146973e-06, -3.0517578e-05)
-rotation = 0.090659894
 scale = Vector2(1.0000001, 1.0000001)
