@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cwy0qnmuoesr2"]
 
-[ext_resource type="Texture2D" uid="uid://dkxsk84ldu1oc" path="res://Tilesheet/d07a8387-6e03-4c3d-9944-f1e9e2ffe3b3.png" id="1_g0cnb"]
+[ext_resource type="Texture2D" uid="uid://dkxsk84ldu1oc" path="res://Tilesheet/enemy.png" id="1_g0cnb"]
 [ext_resource type="Script" uid="uid://cumflbqkej2kl" path="res://mobs/enemy_archer.gd" id="1_m0syk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m0syk"]

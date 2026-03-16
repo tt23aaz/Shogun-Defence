@@ -1,0 +1,233 @@
+[gd_scene format=3 uid="uid://br7kokxroynss"]
+
+[ext_resource type="Script" uid="uid://bt2y0wsd3u2mw" path="res://Towers/tower_archer.gd" id="1_87o2i"]
+[ext_resource type="Texture2D" uid="uid://bj60w735qm3ao" path="res://Tilesheet/c3d45cff-4d7a-4a63-b879-41fbcab32572.png" id="2_eie8v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02teb"]
+size = Vector2(110.0625, 156)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o2jpx"]
+radius = 315.0
+
+[sub_resource type="GDScript" id="GDScript_eie8v"]
+script/source = "extends CollisionShape2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	hide()
+
+
+func _draw():
+	var cen = Vector2(0,0)
+	var rad = get_parent().get_parent().range
+	var col = Color(1,0,0)
+	draw_circle(cen,rad,col)
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02teb"]
+bg_color = Color(0.8037481, 0.016933072, 0.09986391, 1)
+corner_radius_top_left = 400
+corner_radius_top_right = 400
+corner_radius_bottom_right = 400
+corner_radius_bottom_left = 400
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87o2i"]
+bg_color = Color(0.1254902, 0.13333334, 0.16862746, 0.89411765)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.5127016, 0.25798053, 0, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eie8v"]
+bg_color = Color(0.8246195, 0.52511716, 0, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.99463445, 0.76328146, 7.70092e-07, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lyqws"]
+bg_color = Color(0.7708551, 0, 0.11675898, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.999986, 0.33494058, 0.27488416, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5lo2m"]
+bg_color = Color(0.27306023, 0.6958801, 0.44427478, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.27192834, 0.94135296, 0.52874583, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hsnry"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsnry"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vedvx"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_87o2i"]
+script/source = "extends ProgressBar
+
+
+func _process(delta: float):
+	self.max_value = get_node(\"Timer\").wait_time
+	self.value = get_node(\"Timer\").time_left
+"
+
+[node name="TowerArcher" type="StaticBody2D" unique_id=2059997045]
+input_pickable = true
+script = ExtResource("1_87o2i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=619790221]
+position = Vector2(-11.03125, -10)
+shape = SubResource("RectangleShape2D_02teb")
+
+[node name="AimRight" type="Marker2D" parent="." unique_id=270357312]
+position = Vector2(62.055, -26.72)
+
+[node name="AimLeft" type="Marker2D" parent="." unique_id=1618313655]
+position = Vector2(-62, -26.72)
+
+[node name="ArcherSprite" type="Sprite2D" parent="." unique_id=485131966]
+position = Vector2(0, 5.684342e-14)
+scale = Vector2(0.25, 0.27)
+texture = ExtResource("2_eie8v")
+
+[node name="Tower" type="Area2D" parent="." unique_id=1284052091]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tower" unique_id=885770522]
+scale = Vector2(1.25, 1.25)
+shape = SubResource("CircleShape2D_o2jpx")
+script = SubResource("GDScript_eie8v")
+
+[node name="BulletContainer" type="Node" parent="." unique_id=1089072948]
+
+[node name="Area" type="Panel" parent="." unique_id=395854831]
+modulate = Color(0, 0, 0.3137255, 0.3137255)
+offset_left = -400.0
+offset_top = -400.0
+offset_right = 400.0
+offset_bottom = 400.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_02teb")
+
+[node name="Upgrade" type="Node" parent="." unique_id=696384535]
+
+[node name="Upgrade" type="Panel" parent="Upgrade" unique_id=1956083289]
+visible = false
+offset_left = -572.0
+offset_top = 81.0
+offset_right = 4.0
+offset_bottom = 273.0
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_87o2i")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Upgrade/Upgrade" unique_id=1375185601]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 24.0
+offset_right = 572.5
+offset_bottom = 149.0
+theme_override_constants/separation = 68
+alignment = 1
+
+[node name="Range" type="Button" parent="Upgrade/Upgrade/HBoxContainer" unique_id=954971209]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_eie8v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lyqws")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5lo2m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hsnry")
+
+[node name="Label" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Range" unique_id=633273608]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 132.0
+offset_right = 122.5
+offset_bottom = 155.0
+text = "1000"
+horizontal_alignment = 1
+
+[node name="AttackSpeed" type="Button" parent="Upgrade/Upgrade/HBoxContainer" unique_id=1832918272]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_eie8v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lyqws")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5lo2m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hsnry")
+
+[node name="Label" type="Label" parent="Upgrade/Upgrade/HBoxContainer/AttackSpeed" unique_id=1667851232]
+layout_mode = 0
+offset_left = 202.5
+offset_top = 131.5
+offset_right = 323.0
+offset_bottom = 154.5
+text = "1000"
+horizontal_alignment = 1
+
+[node name="Power" type="Button" parent="Upgrade/Upgrade/HBoxContainer" unique_id=2019826804]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_eie8v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lyqws")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5lo2m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hsnry")
+
+[node name="Label" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Power" unique_id=2044974685]
+layout_mode = 0
+offset_left = -150.0
+offset_top = 134.5
+offset_right = -113.0
+offset_bottom = 157.5
+text = "1000"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Upgrade" unique_id=410209818]
+offset_left = -72.0
+offset_top = -128.0
+offset_right = 56.0
+offset_bottom = -112.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hsnry")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vedvx")
+value = 50.0
+show_percentage = false
+script = SubResource("GDScript_87o2i")
+
+[node name="Timer" type="Timer" parent="Upgrade/ProgressBar" unique_id=1138125653]
+wait_time = 3.0
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
+[connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
+[connection signal="mouse_entered" from="Upgrade/Upgrade/HBoxContainer/Range" to="." method="_on_range_mouse_entered"]
+[connection signal="mouse_exited" from="Upgrade/Upgrade/HBoxContainer/Range" to="." method="_on_range_mouse_exited"]
+[connection signal="pressed" from="Upgrade/Upgrade/HBoxContainer/Range" to="." method="_on_range_pressed"]
+[connection signal="pressed" from="Upgrade/Upgrade/HBoxContainer/AttackSpeed" to="." method="_on_attack_speed_pressed"]
+[connection signal="pressed" from="Upgrade/Upgrade/HBoxContainer/Power" to="." method="_on_power_pressed"]
+[connection signal="timeout" from="Upgrade/ProgressBar/Timer" to="." method="_on_timer_timeout"]

@@ -8,12 +8,12 @@ var bulletDamage = 5
 func _physics_process(delta: float) -> void:
 	var pathSpawnerNode = get_tree().get_root().get_node("Main/PathSpawner")
 	target = null
-
+	
 	for i in range(pathSpawnerNode.get_child_count()):
 		if pathSpawnerNode.get_child(i).name == pathName:
 			target = pathSpawnerNode.get_child(i).get_child(0).get_child(0).global_position
 			break
-
+			
 	if target == null:
 		queue_free()
 		return
