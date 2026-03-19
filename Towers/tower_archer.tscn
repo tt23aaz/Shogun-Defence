@@ -121,7 +121,7 @@ position = Vector2(-62, -26.72)
 
 [node name="ArcherSprite" type="Sprite2D" parent="." unique_id=485131966]
 position = Vector2(0, 5.684342e-14)
-scale = Vector2(0.25, 0.27)
+scale = Vector2(0.27, 0.292)
 texture = ExtResource("2_eie8v")
 
 [node name="Tower" type="Area2D" parent="." unique_id=1284052091]

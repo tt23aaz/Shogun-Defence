@@ -11,7 +11,7 @@ bg_color = Color(1, 0, 0, 1)
 bg_color = Color(0, 1, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m0syk"]
-radius = 11.153637
+radius = 12.443171
 
 [node name="EnemyArcher" type="CharacterBody2D" unique_id=1254133813]
 script = ExtResource("1_m0syk")
@@ -28,7 +28,7 @@ show_percentage = false
 script = ExtResource("2_3qas7")
 
 [node name="D07a83876e034c3d9944F1e9e2Ffe3b3" type="Sprite2D" parent="." unique_id=1292272190]
-scale = Vector2(0.21, 0.214)
+scale = Vector2(0.25, 0.255)
 texture = ExtResource("1_g0cnb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=506082148]
