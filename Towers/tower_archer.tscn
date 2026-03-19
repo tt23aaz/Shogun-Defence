@@ -26,6 +26,9 @@ func _draw():
 	draw_circle(cen,rad,col)
 "
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyqws"]
+size = Vector2(93.59999, 132.79999)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02teb"]
 bg_color = Color(0.8037481, 0.016933072, 0.09986391, 1)
 corner_radius_top_left = 400
@@ -127,6 +130,15 @@ texture = ExtResource("2_eie8v")
 scale = Vector2(1.25, 1.25)
 shape = SubResource("CircleShape2D_o2jpx")
 script = SubResource("GDScript_eie8v")
+
+[node name="TowerDetector" type="Area2D" parent="." unique_id=410470936]
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="TowerDetector" unique_id=75725025]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-10.5, -9.999996)
+scale = Vector2(1.25, 1.25)
+shape = SubResource("RectangleShape2D_lyqws")
 
 [node name="BulletContainer" type="Node" parent="." unique_id=1089072948]
 
