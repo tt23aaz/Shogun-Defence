@@ -2,12 +2,30 @@
 
 [ext_resource type="Texture2D" uid="uid://dkxsk84ldu1oc" path="res://Tilesheet/enemy.png" id="1_g0cnb"]
 [ext_resource type="Script" uid="uid://cumflbqkej2kl" path="res://mobs/enemy_archer.gd" id="1_m0syk"]
+[ext_resource type="Script" uid="uid://b5iulndkkw23m" path="res://mobs/EnemyArcher.gd" id="2_3qas7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsnry"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vedvx"]
+bg_color = Color(0, 1, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m0syk"]
 radius = 11.153637
 
 [node name="EnemyArcher" type="CharacterBody2D" unique_id=1254133813]
 script = ExtResource("1_m0syk")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=410209818]
+offset_left = -60.0
+offset_top = -110.0
+offset_right = 68.0
+offset_bottom = -94.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hsnry")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vedvx")
+value = 50.0
+show_percentage = false
+script = ExtResource("2_3qas7")
 
 [node name="D07a83876e034c3d9944F1e9e2Ffe3b3" type="Sprite2D" parent="." unique_id=1292272190]
 scale = Vector2(0.21, 0.214)
