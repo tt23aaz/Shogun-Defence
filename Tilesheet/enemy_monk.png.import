@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj60w735qm3ao"
-path="res://.godot/imported/ally.png-b90e8f537a02426e55fa620345dbc974.ctex"
+uid="uid://b4p82r37j6r72"
+path="res://.godot/imported/enemy_monk.png-33ccc6a0e2dc90e9d7e562d4a2b58c9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilesheet/ally.png"
-dest_files=["res://.godot/imported/ally.png-b90e8f537a02426e55fa620345dbc974.ctex"]
+source_file="res://Tilesheet/enemy_monk.png"
+dest_files=["res://.godot/imported/enemy_monk.png-33ccc6a0e2dc90e9d7e562d4a2b58c9c.ctex"]
 
 [params]
 

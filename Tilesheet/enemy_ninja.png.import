@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brlivlu2pyfif"
-path="res://.godot/imported/samurai.png-4ef281bd9471a027dfe89e6bcfc3fbdd.ctex"
+uid="uid://bos11603c6076"
+path="res://.godot/imported/enemy_ninja.png-746fd8da96634371540712cca71ec8d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilesheet/samurai.png"
-dest_files=["res://.godot/imported/samurai.png-4ef281bd9471a027dfe89e6bcfc3fbdd.ctex"]
+source_file="res://Tilesheet/enemy_ninja.png"
+dest_files=["res://.godot/imported/enemy_ninja.png-746fd8da96634371540712cca71ec8d0.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnlasiahwfgej"
-path="res://.godot/imported/ninja.png-56c9304902b513c19a4bed67fb78244d.ctex"
+uid="uid://cudhevr1xjuyn"
+path="res://.godot/imported/ally_monk.png-2c0fda7768e99ff88e57a837b3f0d00d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilesheet/ninja.png"
-dest_files=["res://.godot/imported/ninja.png-56c9304902b513c19a4bed67fb78244d.ctex"]
+source_file="res://Tilesheet/ally_monk.png"
+dest_files=["res://.godot/imported/ally_monk.png-2c0fda7768e99ff88e57a837b3f0d00d.ctex"]
 
 [params]
 

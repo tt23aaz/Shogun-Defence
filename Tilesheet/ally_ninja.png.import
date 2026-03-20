@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkxsk84ldu1oc"
-path="res://.godot/imported/enemy.png-ed5e955271c2dcbdd73636334b924ff1.ctex"
+uid="uid://dnlasiahwfgej"
+path="res://.godot/imported/ally_ninja.png-448dec665da0555aba1bf96b0c7b9b73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilesheet/enemy.png"
-dest_files=["res://.godot/imported/enemy.png-ed5e955271c2dcbdd73636334b924ff1.ctex"]
+source_file="res://Tilesheet/ally_ninja.png"
+dest_files=["res://.godot/imported/ally_ninja.png-448dec665da0555aba1bf96b0c7b9b73.ctex"]
 
 [params]
 
