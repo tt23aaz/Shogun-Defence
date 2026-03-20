@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d308pubqnhnqb" path="res://Tilesheet/upgrade.png" id="4_lyqws"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02teb"]
-size = Vector2(110.0625, 156)
+size = Vector2(117.0625, 172)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o2jpx"]
 radius = 315.0
@@ -27,7 +27,7 @@ func _draw():
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyqws"]
-size = Vector2(93.59999, 132.79999)
+size = Vector2(101.59999, 144.79999)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02teb"]
 bg_color = Color(0.8037481, 0.016933072, 0.09986391, 1)
@@ -110,18 +110,18 @@ input_pickable = true
 script = ExtResource("1_87o2i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=619790221]
-position = Vector2(-11.03125, -10)
+position = Vector2(-7.53125, -2)
 shape = SubResource("RectangleShape2D_02teb")
 
 [node name="AimRight" type="Marker2D" parent="." unique_id=270357312]
-position = Vector2(62.055, -26.72)
+position = Vector2(71, -28.82)
 
 [node name="AimLeft" type="Marker2D" parent="." unique_id=1618313655]
-position = Vector2(-62, -26.72)
+position = Vector2(-71, -28.82)
 
 [node name="ArcherSprite" type="Sprite2D" parent="." unique_id=485131966]
-position = Vector2(0, 5.684342e-14)
-scale = Vector2(0.27, 0.292)
+position = Vector2(0, -77.964)
+scale = Vector2(1.055, 1.143)
 texture = ExtResource("2_eie8v")
 
 [node name="Tower" type="Area2D" parent="." unique_id=1284052091]
@@ -136,7 +136,7 @@ script = SubResource("GDScript_eie8v")
 [node name="CollisionShape2D22" type="CollisionShape2D" parent="TowerDetector" unique_id=75725025]
 light_mask = 3
 visibility_layer = 3
-position = Vector2(-10.5, -9.999996)
+position = Vector2(-7.5000005, -2.4999962)
 scale = Vector2(1.25, 1.25)
 shape = SubResource("RectangleShape2D_lyqws")
 
@@ -274,10 +274,10 @@ scale = Vector2(0.09204099, 0.082031265)
 texture = ExtResource("4_lyqws")
 
 [node name="ProgressBar" type="ProgressBar" parent="Upgrade" unique_id=410209818]
-offset_left = -72.0
-offset_top = -128.0
-offset_right = 56.0
-offset_bottom = -112.0
+offset_left = -71.0
+offset_top = -124.0
+offset_right = 57.0
+offset_bottom = -108.0
 theme_override_styles/background = SubResource("StyleBoxFlat_hsnry")
 theme_override_styles/fill = SubResource("StyleBoxFlat_vedvx")
 value = 50.0

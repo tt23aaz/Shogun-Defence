@@ -28,7 +28,8 @@ show_percentage = false
 script = ExtResource("2_3qas7")
 
 [node name="D07a83876e034c3d9944F1e9e2Ffe3b3" type="Sprite2D" parent="." unique_id=1292272190]
-scale = Vector2(0.25, 0.255)
+position = Vector2(6, -69)
+scale = Vector2(1, 1.02)
 texture = ExtResource("1_g0cnb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=506082148]

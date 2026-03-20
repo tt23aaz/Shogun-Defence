@@ -11,21 +11,21 @@ offset_bottom = 40.0
 script = ExtResource("1_in8g1")
 
 [node name="C3d45Cff4d7a4a63B87941Fbcab32572" type="Sprite2D" parent="." unique_id=260203449]
-position = Vector2(45, 45)
-scale = Vector2(0.11, 0.11)
+position = Vector2(43.72, 15.07)
+scale = Vector2(0.42, 0.42)
 texture = ExtResource("1_j28fn")
 
 [node name="Label" type="Label" parent="C3d45Cff4d7a4a63B87941Fbcab32572" unique_id=2036806576]
-offset_left = 45.454525
-offset_top = 136.36363
-offset_right = 217.45453
-offset_bottom = 341.36365
-theme_override_font_sizes/font_size = 150
+offset_left = 3.0476198
+offset_top = 97.452385
+offset_right = 175.04762
+offset_bottom = 302.4524
+theme_override_font_sizes/font_size = 50
 text = "10"
 
 [node name="GoldCoin" type="Sprite2D" parent="C3d45Cff4d7a4a63B87941Fbcab32572" unique_id=575608166]
-position = Vector2(263.63638, 263.63638)
-scale = Vector2(0.1, 0.1)
+position = Vector2(72.09524, 135.54762)
+scale = Vector2(0.03, 0.03)
 texture = ExtResource("3_rr5tf")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
