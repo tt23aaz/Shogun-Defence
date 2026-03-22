@@ -4,6 +4,13 @@
 [ext_resource type="Script" uid="uid://dbn8ry70uihxo" path="res://PathSpawner.gd" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dfxq6yvb04jjc" path="res://ui.tscn" id="3_h2yge"]
 
+[sub_resource type="GDScript" id="GDScript_h2yge"]
+script/source = "extends Label
+
+func _process(delta: float) -> void:
+	text = \"FPS: %s\" % [Engine.get_frames_per_second()]
+"
+
 [node name="Main" type="Node2D" unique_id=261045473]
 
 [node name="TileMap" parent="." unique_id=1034910503 instance=ExtResource("1_ig7tw")]
@@ -19,5 +26,13 @@ autostart = true
 [node name="UI" parent="." unique_id=1937801971 instance=ExtResource("3_h2yge")]
 
 [node name="Towers" type="Node2D" parent="." unique_id=1856334605]
+
+[node name="Label" type="Label" parent="." unique_id=1411146722]
+offset_left = 2560.0
+offset_right = 2880.0
+offset_bottom = 137.0
+theme_override_font_sizes/font_size = 50
+text = "1000"
+script = SubResource("GDScript_h2yge")
 
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
