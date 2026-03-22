@@ -13,8 +13,9 @@ height = 36.0
 script = ExtResource("1_nrif7")
 
 [node name="08733c77E2054Cb28Bc13c43085d9363" type="Sprite2D" parent="." unique_id=1418173672]
+position = Vector2(2.655, 0)
 rotation = 1.5707964
-scale = Vector2(0.07, 0.082)
+scale = Vector2(0.185, 0.216)
 texture = ExtResource("1_c8hkb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=964319671]
