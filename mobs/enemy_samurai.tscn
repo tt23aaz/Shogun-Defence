@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bpu10tce6hdod"]
+
+[ext_resource type="Script" uid="uid://crai7gc1mprgd" path="res://mobs/enemy_samurai.gd" id="1_8s1n6"]
+[ext_resource type="Script" uid="uid://l14ye742ahll" path="res://mobs/EnemySamurai.gd" id="2_8s1n6"]
+[ext_resource type="Texture2D" uid="uid://c8dol7bdiqyvl" path="res://Tilesheet/enemy_samurai.png" id="3_ufr4i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsnry"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vedvx"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m0syk"]
+radius = 12.443171
+
+[node name="EnemyArcher" type="CharacterBody2D" unique_id=1254133813]
+script = ExtResource("1_8s1n6")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=410209818]
+offset_left = -60.0
+offset_top = -131.0
+offset_right = 68.0
+offset_bottom = -115.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hsnry")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vedvx")
+value = 50.0
+show_percentage = false
+script = ExtResource("2_8s1n6")
+
+[node name="D07a83876e034c3d9944F1e9e2Ffe3b3" type="Sprite2D" parent="." unique_id=1292272190]
+position = Vector2(6.0750003, -52.894997)
+scale = Vector2(1.37, 1.397)
+texture = ExtResource("3_ufr4i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=506082148]
+position = Vector2(2.4, -6.26)
+scale = Vector2(7.865, 7.865)
+shape = SubResource("CircleShape2D_m0syk")

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://chj4bboffmuaf"]
+
+[ext_resource type="PackedScene" uid="uid://c0qp22mrhumk" path="res://mobs/enemy_monk.tscn" id="1_hhem8"]
+
+[sub_resource type="Curve2D" id="Curve2D_ig7tw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 64, 448, 0, 0, 0, 0, 512, 448, 0, 0, 0, 0, 1024, 448, 0, 0, 0, 0, 1024, 768, 0, 0, 0, 0, 1024, 1152, 0, 0, 0, 0, 2368, 1152, 0, 0, 0, 0, 2368, 1600, 0, 0, 0, 0, 3011.404, 1600.8745, 0, 0, 0, 0, 3584, 1600)
+}
+point_count = 9
+
+[node name="Path2D" type="Path2D" unique_id=1086179089]
+curve = SubResource("Curve2D_ig7tw")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=108609879]
+position = Vector2(64, 448)
+rotates = false
+loop = false
+
+[node name="EnemyArcher2" parent="PathFollow2D" unique_id=1254133813 instance=ExtResource("1_hhem8")]
