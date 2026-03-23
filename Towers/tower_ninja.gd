@@ -12,7 +12,11 @@ var reload = 0
 @warning_ignore("shadowed_global_identifier")
 var range = 400
 
-var startShooting = false
+var range_cost = 10
+var attack_speed_cost = 15
+var power_cost = 20
+
+var start_shooting = false
 
 @onready var timer = $Upgrade/ProgressBar/Timer
 @onready var progress_bar = $Upgrade/ProgressBar
@@ -50,7 +54,7 @@ func clear_bullets():
 		bullet.queue_free()
 
 
-func Shoot():
+func Shoot() -> void:
 	if current == null:
 		return
 	var temp_bullet = Bullet.instantiate()
@@ -108,10 +112,10 @@ func _on_timer_timeout() -> void:
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var towerPath = get_tree().get_root().get_node("Main/Towers")
-		for i in towerPath.get_child_count():
-			if towerPath.get_child(i).name != self.name:
-				towerPath.get_child(i).get_node("Upgrade/Upgrade").hide()
+		var tower_path = get_tree().get_root().get_node("Main/Towers")
+		for i in tower_path.get_child_count():
+			if tower_path.get_child(i).name != self.name:
+				tower_path.get_child(i).get_node("Upgrade/Upgrade").hide()
 		var panel = get_node("Upgrade/Upgrade")
 		panel.visible = !panel.visible
 		if panel.visible:
@@ -128,23 +132,36 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 
 
 func _on_range_pressed() -> void:
-	range += 30
+	if Game.Gold >= range_cost:
+		Game.Gold -= range_cost
+		range += 30
+		range_cost += 5
 
 
 func _on_attack_speed_pressed() -> void:
-	if reload <= 2:
-		reload += 0.1
-	timer.wait_time = 3 - reload
+	if Game.Gold >= attack_speed_cost:
+		Game.Gold -= attack_speed_cost
+		if reload <= 2:
+			reload += 0.1
+		timer.wait_time = 3 - reload
+		attack_speed_cost += 5
 
 
 func _on_power_pressed() -> void:
-	bullet_damage += 1
+	if Game.Gold >= power_cost:
+		Game.Gold -= power_cost
+		bullet_damage += 1
+		power_cost += 5
 
-func update_powers():
+func update_powers() -> void:
 	get_node("Upgrade/Upgrade/HBoxContainer/Power/Label").text = str(bullet_damage)
 	get_node("Upgrade/Upgrade/HBoxContainer/AttackSpeed/Label").text = str(3 - reload)
 	get_node("Upgrade/Upgrade/HBoxContainer/Range/Label").text = str(range)
-	
+
+	get_node("Upgrade/Upgrade/HBoxContainer/Power/Label3").text = "Cost: " + str(power_cost)
+	get_node("Upgrade/Upgrade/HBoxContainer/AttackSpeed/Label3").text = "Cost: " + str(attack_speed_cost)
+	get_node("Upgrade/Upgrade/HBoxContainer/Range/Label2").text = "Cost: " + str(range_cost)
+
 	get_node("Tower/CollisionShape2D2").shape.radius = range
 
 func _on_range_mouse_entered() -> void:
