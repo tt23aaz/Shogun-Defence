@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://br7kokxroynss"]
 
 [ext_resource type="Script" uid="uid://bt2y0wsd3u2mw" path="res://Towers/tower_archer.gd" id="1_87o2i"]
-[ext_resource type="Texture2D" uid="uid://bj60w735qm3ao" path="res://Tilesheet/ally.png" id="2_eie8v"]
+[ext_resource type="Texture2D" uid="uid://bj60w735qm3ao" path="res://Tilesheet/ally_archer.png" id="2_eie8v"]
 [ext_resource type="Texture2D" uid="uid://cs6wtq8fll2g3" path="res://Tilesheet/arrow.png" id="3_eie8v"]
 [ext_resource type="Texture2D" uid="uid://d308pubqnhnqb" path="res://Tilesheet/upgrade.png" id="4_lyqws"]
 
@@ -27,7 +27,7 @@ func _draw():
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyqws"]
-size = Vector2(96, 143.19998)
+size = Vector2(96.79999, 144)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02teb"]
 bg_color = Color(0.8037481, 0.016933072, 0.09986391, 1)
@@ -131,12 +131,13 @@ scale = Vector2(1.25, 1.25)
 shape = SubResource("CircleShape2D_o2jpx")
 script = SubResource("GDScript_eie8v")
 
-[node name="TowerDetector" type="Area2D" parent="." unique_id=410470936]
+[node name="TowerDetector" type="Area2D" parent="." unique_id=308995988]
+process_mode = 3
+collision_layer = 3
+collision_mask = 3
 
-[node name="CollisionShape2D22" type="CollisionShape2D" parent="TowerDetector" unique_id=75725025]
-light_mask = 3
-visibility_layer = 3
-position = Vector2(-8, -1.4999971)
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="TowerDetector" unique_id=267366466]
+position = Vector2(-7.499998, -2.0000038)
 scale = Vector2(1.25, 1.25)
 shape = SubResource("RectangleShape2D_lyqws")
 
@@ -157,7 +158,7 @@ visible = false
 offset_left = -572.0
 offset_top = 81.0
 offset_right = 4.0
-offset_bottom = 273.0
+offset_bottom = 313.0
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_87o2i")
 
@@ -187,13 +188,22 @@ offset_bottom = 155.0
 text = "1000"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Range" unique_id=1801951290]
+[node name="Label2" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Range" unique_id=1572750973]
 layout_mode = 0
-offset_left = 194.0
+offset_left = -0.5
 offset_top = -23.5
-offset_right = 314.5
+offset_right = 120.0
 offset_bottom = -0.5
-text = "Power"
+text = "Range"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Range" unique_id=116461591]
+layout_mode = 0
+offset_left = 28.5
+offset_top = 156.5
+offset_right = 68.5
+offset_bottom = 179.5
+text = "1000"
 horizontal_alignment = 1
 
 [node name="Power" type="Button" parent="Upgrade/Upgrade/HBoxContainer" unique_id=2019826804]
@@ -213,13 +223,22 @@ offset_bottom = 155.5
 text = "1000"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Power" unique_id=1572750973]
+[node name="Label3" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Power" unique_id=1801951290]
 layout_mode = 0
-offset_left = -193.5
+offset_left = 1.0
 offset_top = -23.5
-offset_right = -73.0
+offset_right = 121.5
 offset_bottom = -0.5
-text = "Range"
+text = "Power"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Upgrade/Upgrade/HBoxContainer/Power" unique_id=301465227]
+layout_mode = 0
+offset_left = 10.5
+offset_top = 156.5
+offset_right = 78.5
+offset_bottom = 186.0
+text = "1000"
 horizontal_alignment = 1
 
 [node name="AttackSpeed" type="Button" parent="Upgrade/Upgrade/HBoxContainer" unique_id=1832918272]
@@ -248,24 +267,33 @@ offset_bottom = -0.5
 text = "Attack Speed"
 horizontal_alignment = 1
 
+[node name="Label3" type="Label" parent="Upgrade/Upgrade/HBoxContainer/AttackSpeed" unique_id=1674359077]
+layout_mode = 0
+offset_left = 33.5
+offset_top = 154.5
+offset_right = 73.5
+offset_bottom = 177.5
+text = "1000"
+horizontal_alignment = 1
+
 [node name="Arrow" type="Sprite2D" parent="Upgrade/Upgrade/HBoxContainer" unique_id=1078354823]
-position = Vector2(285, 67)
-scale = Vector2(0.12626138, 0.15716553)
+position = Vector2(285.5, 60.500008)
+scale = Vector2(0.25425535, 0.28636003)
 texture = ExtResource("3_eie8v")
 
 [node name="Arrow2" type="Sprite2D" parent="Upgrade/Upgrade/HBoxContainer" unique_id=706701170]
-position = Vector2(448, 65)
-scale = Vector2(0.09731037, 0.11276245)
+position = Vector2(448, 58.5)
+scale = Vector2(0.2, 0.233)
 texture = ExtResource("3_eie8v")
 
-[node name="Arrow3" type="Sprite2D" parent="Upgrade/Upgrade/HBoxContainer" unique_id=1998162656]
-position = Vector2(480.5, 65)
-scale = Vector2(0.09731037, 0.11276245)
+[node name="Arrow3" type="Sprite2D" parent="Upgrade/Upgrade/HBoxContainer" unique_id=1331355041]
+position = Vector2(514, 58.5)
+scale = Vector2(0.2, 0.233)
 texture = ExtResource("3_eie8v")
 
-[node name="Arrow4" type="Sprite2D" parent="Upgrade/Upgrade/HBoxContainer" unique_id=1681314192]
-position = Vector2(512, 64.5)
-scale = Vector2(0.09731037, 0.11276245)
+[node name="Arrow4" type="Sprite2D" parent="Upgrade/Upgrade/HBoxContainer" unique_id=1646911620]
+position = Vector2(483, 58.5)
+scale = Vector2(0.2, 0.233)
 texture = ExtResource("3_eie8v")
 
 [node name="Upgrade2" type="Sprite2D" parent="Upgrade/Upgrade/HBoxContainer" unique_id=950428475]

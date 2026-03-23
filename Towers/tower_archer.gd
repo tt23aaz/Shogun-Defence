@@ -1,10 +1,10 @@
 extends StaticBody2D
 
 var Bullet = preload("res://Towers/arrow.tscn")
-var bulletDamage = 5
-var pathName
-var currTargets = []
-var curr
+var bullet_damage = 5
+var path_name
+var curr_targets = []
+var current
 
 
 var reload = 0
@@ -12,13 +12,17 @@ var reload = 0
 @warning_ignore("shadowed_global_identifier")
 var range = 400
 
-var startShooting = false
+var range_cost = 10
+var attack_speed_cost = 15
+var power_cost = 20
+
+var start_shooting = false
 
 @onready var timer = $Upgrade/ProgressBar/Timer
 @onready var progress_bar = $Upgrade/ProgressBar
-@onready var towerSprite = $ArcherSprite
-@onready var aimLeft = $AimLeft
-@onready var aimRight = $AimRight
+@onready var tower_sprite = $ArcherSprite
+@onready var aim_left = $AimLeft
+@onready var aim_right = $AimRight
 
 
 func _ready():
@@ -30,17 +34,18 @@ func _ready():
 
 func _process(_delta: float):
 	progress_bar.global_position = self.position + Vector2(-72.0, -128.0)
-	if is_instance_valid(curr):
-		if curr.global_position.x < global_position.x:
-			towerSprite.flip_h = true
+	if is_instance_valid(current):
+		if current.global_position.x < global_position.x:
+			tower_sprite.flip_h = true
 		else:
-			towerSprite.flip_h = false
+			tower_sprite.flip_h = false
 		if timer.is_stopped():
 			timer.start()
 		progress_bar.value = reload - timer.time_left
 	else:
 		progress_bar.value = 0
 		timer.stop()
+		update_current_target()
 	update_powers()
 
 
@@ -49,21 +54,21 @@ func clear_bullets():
 		bullet.queue_free()
 
 
-func Shoot():
-	if curr == null:
+func Shoot() -> void:
+	if current == null:
 		return
-	var tempBullet = Bullet.instantiate()
-	tempBullet.pathName = pathName
-	tempBullet.bulletDamage = bulletDamage
-	get_node("BulletContainer").add_child(tempBullet)
-	if curr.global_position.x < global_position.x:
-		tempBullet.global_position = aimLeft.global_position
+	var temp_bullet = Bullet.instantiate()
+	temp_bullet.path_name = path_name
+	temp_bullet.bullet_damage = bullet_damage
+	get_node("BulletContainer").add_child(temp_bullet)
+	if current.global_position.x < global_position.x:
+		temp_bullet.global_position = aim_left.global_position
 	else:
-		tempBullet.global_position = aimRight.global_position
+		temp_bullet.global_position = aim_right.global_position
 
 
 func _on_tower_body_entered(body: Node2D) -> void:
-	if "EnemyArcher" in body.name:
+	if "Enemy" in body.name:
 		update_current_target()
 
 
@@ -72,26 +77,26 @@ func _on_tower_body_exited(_body: Node2D) -> void:
 
 
 func update_current_target() -> void:
-	var tempArray = []
-	currTargets = get_node("Tower").get_overlapping_bodies()
+	var temp_array = []
+	curr_targets = get_node("Tower").get_overlapping_bodies()
 
-	for i in currTargets:
+	for i in curr_targets:
 		if "Enemy" in i.name:
-			tempArray.append(i)
+			temp_array.append(i)
 
-	var currTarget = null
+	var curr_target = null
 
-	for i in tempArray:
-		if currTarget == null:
-			currTarget = i.get_node("../")
+	for i in temp_array:
+		if curr_target == null:
+			curr_target = i.get_node("../")
 		else:
-			if i.get_parent().get_progress() > currTarget.get_progress():
-				currTarget = i.get_node("../")
+			if i.get_parent().get_progress() > curr_target.get_progress():
+				curr_target = i.get_node("../")
 
-	curr = currTarget
+	current = curr_target
 
-	if curr != null:
-		pathName = curr.get_parent().name
+	if current != null:
+		path_name = current.get_parent().name
 		if timer.is_stopped():
 			timer.start()
 	else:
@@ -100,17 +105,17 @@ func update_current_target() -> void:
 
 
 func _on_timer_timeout() -> void:
-	if is_instance_valid(curr):
+	if is_instance_valid(current):
 		Shoot()
 		timer.start()
 
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var towerPath = get_tree().get_root().get_node("Main/Towers")
-		for i in towerPath.get_child_count():
-			if towerPath.get_child(i).name != self.name:
-				towerPath.get_child(i).get_node("Upgrade/Upgrade").hide()
+		var tower_path = get_tree().get_root().get_node("Main/Towers")
+		for i in tower_path.get_child_count():
+			if tower_path.get_child(i).name != self.name:
+				tower_path.get_child(i).get_node("Upgrade/Upgrade").hide()
 		var panel = get_node("Upgrade/Upgrade")
 		panel.visible = !panel.visible
 		if panel.visible:
@@ -127,23 +132,36 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 
 
 func _on_range_pressed() -> void:
-	range += 30
+	if Game.Gold >= range_cost:
+		Game.Gold -= range_cost
+		range += 30
+		range_cost += 5
 
 
 func _on_attack_speed_pressed() -> void:
-	if reload <= 2:
-		reload += 0.1
-	timer.wait_time = 3 - reload
+	if Game.Gold >= attack_speed_cost:
+		Game.Gold -= attack_speed_cost
+		if reload <= 2:
+			reload += 0.1
+		timer.wait_time = 3 - reload
+		attack_speed_cost += 5
 
 
 func _on_power_pressed() -> void:
-	bulletDamage += 1
+	if Game.Gold >= power_cost:
+		Game.Gold -= power_cost
+		bullet_damage += 1
+		power_cost += 5
 
-func update_powers():
-	get_node("Upgrade/Upgrade/HBoxContainer/Power/Label").text = str(bulletDamage)
+func update_powers() -> void:
+	get_node("Upgrade/Upgrade/HBoxContainer/Power/Label").text = str(bullet_damage)
 	get_node("Upgrade/Upgrade/HBoxContainer/AttackSpeed/Label").text = str(3 - reload)
 	get_node("Upgrade/Upgrade/HBoxContainer/Range/Label").text = str(range)
-	
+
+	get_node("Upgrade/Upgrade/HBoxContainer/Power/Label2").text = "Cost: " + str(power_cost)
+	get_node("Upgrade/Upgrade/HBoxContainer/AttackSpeed/Label3").text = "Cost: " + str(attack_speed_cost)
+	get_node("Upgrade/Upgrade/HBoxContainer/Range/Label3").text = "Cost: " + str(range_cost)
+
 	get_node("Tower/CollisionShape2D2").shape.radius = range
 
 func _on_range_mouse_entered() -> void:
