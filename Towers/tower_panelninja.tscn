@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bjeudekq2dilt"]
+
+[ext_resource type="Script" uid="uid://bragjysypc6p1" path="res://Towers/tower_panelninja.gd" id="1_m52un"]
+[ext_resource type="Texture2D" uid="uid://dnlasiahwfgej" path="res://Tilesheet/ally_ninja.png" id="2_5gnrj"]
+[ext_resource type="Texture2D" uid="uid://djnw3y8r56bh3" path="res://Tilesheet/gold coin.png" id="3_pq4r6"]
+
+[node name="TowerPanel" type="Panel" unique_id=235756021]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 80.0
+offset_bottom = 80.0
+script = ExtResource("1_m52un")
+
+[node name="C3d45Cff4d7a4a63B87941Fbcab32572" type="Sprite2D" parent="." unique_id=260203449]
+position = Vector2(41.000004, 34.000004)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_5gnrj")
+
+[node name="Label" type="Label" parent="C3d45Cff4d7a4a63B87941Fbcab32572" unique_id=2036806576]
+offset_left = 8.571421
+offset_top = 71.42856
+offset_right = 208.57143
+offset_bottom = 298.0952
+theme_override_font_sizes/font_size = 55
+text = "25"
+
+[node name="GoldCoin" type="Sprite2D" parent="C3d45Cff4d7a4a63B87941Fbcab32572" unique_id=575608166]
+position = Vector2(91.10864, 110.45349)
+scale = Vector2(0.074, 0.076)
+texture = ExtResource("3_pq4r6")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
