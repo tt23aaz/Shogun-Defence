@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://dfxq6yvb04jjc"]
 
-[ext_resource type="PackedScene" uid="uid://cwygqbwob2jxp" path="res://Towers/TowerPanel.tscn" id="1_fyqef"]
+[ext_resource type="PackedScene" uid="uid://cwygqbwob2jxp" path="res://Towers/tower_panelarcher.tscn" id="1_fyqef"]
+[ext_resource type="PackedScene" uid="uid://bdwp3xe0nqvnp" path="res://wave_completed.tscn" id="1_ibotj"]
+[ext_resource type="PackedScene" uid="uid://dtecm01hgxwf1" path="res://map_complete.tscn" id="1_n5ude"]
+[ext_resource type="PackedScene" uid="uid://ce1dygxnjem4l" path="res://Towers/tower_panelmonk.tscn" id="2_m6e0p"]
+[ext_resource type="PackedScene" uid="uid://bjeudekq2dilt" path="res://Towers/tower_panelninja.tscn" id="3_27fn8"]
+[ext_resource type="PackedScene" uid="uid://bc0vdfok2g11d" path="res://Towers/tower_panelsamurai.tscn" id="4_nltto"]
 
 [sub_resource type="GDScript" id="GDScript_fyqef"]
 script/source = "extends Label
@@ -18,37 +23,107 @@ func _process(delta: float) -> void:
 	self.text = \"Gold: \" + str(Game.Gold)
 "
 
+[sub_resource type="GDScript" id="GDScript_nltto"]
+script/source = "extends Label
+
+
+func _process(delta: float) -> void:
+	self.text = \"Wave: \" + str(Game.current_wave) + \"/\" + str(Game.total_waves)
+"
+
+[sub_resource type="GDScript" id="GDScript_ibotj"]
+script/source = "extends Label
+
+
+func _process(delta: float) -> void:
+	self.text = \"Enemies Left: \" + str(Game.enemy_count)
+"
+
+[sub_resource type="GDScript" id="GDScript_n5ude"]
+script/source = "extends Button
+
+func _ready() -> void:
+	hide()
+
+func _on_pressed() -> void:
+	var main = get_tree().current_scene
+	hide()
+	main.get_node(\"PathSpawner\").start_next_wave()
+"
+
 [node name="UI" type="CanvasLayer" unique_id=1937801971]
+
+[node name="Map Complete" parent="." unique_id=619278426 instance=ExtResource("1_n5ude")]
+visible = false
+
+[node name="Wave Completed" parent="." unique_id=1139942938 instance=ExtResource("1_ibotj")]
+visible = false
 
 [node name="Panel" type="Panel" parent="." unique_id=1807938212]
 offset_left = 2944.0
 offset_right = 3584.0
-offset_bottom = 2048.0
+offset_bottom = 704.0
 
 [node name="FlowContainer" type="FlowContainer" parent="Panel" unique_id=927808650]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 64.0
 offset_right = 235.0
-offset_bottom = 704.0
+offset_bottom = 256.0
 scale = Vector2(3, 3)
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 
-[node name="TowerPanel" parent="Panel/FlowContainer" unique_id=235756021 instance=ExtResource("1_fyqef")]
+[node name="Archer" parent="Panel/FlowContainer" unique_id=235756021 instance=ExtResource("1_fyqef")]
+layout_mode = 2
+
+[node name="Monk" parent="Panel/FlowContainer" unique_id=815366403 instance=ExtResource("2_m6e0p")]
+layout_mode = 2
+
+[node name="Ninja" parent="Panel/FlowContainer" unique_id=966930953 instance=ExtResource("3_27fn8")]
+layout_mode = 2
+
+[node name="Samurai" parent="Panel/FlowContainer" unique_id=868603911 instance=ExtResource("4_nltto")]
 layout_mode = 2
 
 [node name="Health" type="Label" parent="." unique_id=1146433706]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 375.0
+offset_bottom = 137.0
 theme_override_font_sizes/font_size = 100
 text = "Health: "
 script = SubResource("GDScript_fyqef")
 
 [node name="Gold" type="Label" parent="." unique_id=53399656]
-offset_left = 704.0
-offset_right = 1079.0
+offset_left = 583.0
+offset_right = 958.0
 offset_bottom = 137.0
 theme_override_font_sizes/font_size = 100
 text = "Gold: "
 script = SubResource("GDScript_m6e0p")
+
+[node name="Wave" type="Label" parent="." unique_id=615535902]
+offset_left = 1137.0
+offset_right = 1512.0
+offset_bottom = 137.0
+theme_override_font_sizes/font_size = 100
+text = "Wave:"
+script = SubResource("GDScript_nltto")
+
+[node name="Enemy count" type="Label" parent="." unique_id=1714260723]
+offset_left = 1779.0
+offset_right = 2427.0
+offset_bottom = 137.0
+theme_override_font_sizes/font_size = 100
+text = "Enemies left: "
+script = SubResource("GDScript_ibotj")
+
+[node name="Next wave button" type="Button" parent="." unique_id=816812765]
+offset_left = 2995.0
+offset_top = 1878.0
+offset_right = 3583.0
+offset_bottom = 2052.0
+theme_override_font_sizes/font_size = 100
+text = "Next Wave"
+script = SubResource("GDScript_n5ude")
+
+[connection signal="pressed" from="Next wave button" to="Next wave button" method="_on_pressed"]
