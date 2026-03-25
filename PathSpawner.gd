@@ -1,7 +1,9 @@
 extends Node2D
 
-@onready var path = preload("res://mobs/Stage 1.tscn")
+@onready var path_1 = preload("res://mobs/Stage 1.tscn")
 @onready var path_2 = preload("res://mobs/Stage 2.tscn")
+@onready var path_3 = preload("res://mobs/Stage 3.tscn")
+@onready var path_4 = preload("res://mobs/Stage 4.tscn")
 
 var spawning_wave := false
 
@@ -18,14 +20,17 @@ var waves = [
 		{"scene": preload("res://mobs/Stage 2.tscn"), "count": 2, "delay": 1.5}
 	],
 	[
-		{"scene": preload("res://mobs/Stage 1.tscn"), "count": 10, "delay": 1.1}
+		{"scene": preload("res://mobs/Stage 1.tscn"), "count": 10, "delay": 1.1},
+		{"scene": preload("res://mobs/Stage 4.tscn"), "count": 2, "delay": 1.5}
 	],
 	[
 		{"scene": preload("res://mobs/Stage 1.tscn"), "count": 8, "delay": 1.0},
 		{"scene": preload("res://mobs/Stage 2.tscn"), "count": 4, "delay": 1.3}
 	],
 	[
-		{"scene": preload("res://mobs/Stage 1.tscn"), "count": 12, "delay": 1.0}
+		{"scene": preload("res://mobs/Stage 1.tscn"), "count": 8, "delay": 1.0},
+		{"scene": preload("res://mobs/Stage 4.tscn"), "count": 4, "delay": 1.5},
+		{"scene": preload("res://mobs/Stage 3.tscn"), "count": 2, "delay": 1.2}
 	],
 	[
 		{"scene": preload("res://mobs/Stage 1.tscn"), "count": 10, "delay": 0.9},
@@ -91,6 +96,12 @@ func enemy_removed() -> void:
 
 	if Game.enemy_count == 0 and not spawning_wave:
 		if Game.current_wave >= waves.size():
+			show_map_complete()
+		else:
+			show_wave_complete()
+
+	if Game.enemy_count == 0 and not spawning_wave:
+		if Game.current_wave >= waves.size():
 			print("Map Complete")
 		else:
 			show_wave_complete()
@@ -107,3 +118,7 @@ func show_wave_complete() -> void:
 	next_wave_button.hide()
 
 	panel.get_node("Label").text = "WAVE " + str(Game.current_wave) + " COMPLETED\n\n+" + str(reward) + " Gold"
+	
+func show_map_complete() -> void:
+	var main = get_tree().current_scene
+	var panel = get_tree().change_scene_to_file("res://map_complete.tscn")
