@@ -5,7 +5,8 @@ var Speed = 1000
 var path_name = ""
 var bullet_damage = 5
 
-func _physics_process(delta: float) -> void:
+
+func _physics_process(_delta: float) -> void:
 	var path_spawner_node = get_tree().get_root().get_node("Main/PathSpawner")
 	target = null
 	
