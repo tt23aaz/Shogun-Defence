@@ -4450,10 +4450,6 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 7, 65536, 65536, 7, 262144, 65536
 [node name="PathSpawner" type="Node2D" parent="." unique_id=448655439]
 script = ExtResource("2_n2bu5")
 
-[node name="Timer" type="Timer" parent="PathSpawner" unique_id=940765893]
-wait_time = 3.0
-autostart = true
-
 [node name="UI" parent="." unique_id=1937801971 instance=ExtResource("3_fpksy")]
 
 [node name="Towers" type="Node2D" parent="." unique_id=1856334605]
@@ -4465,5 +4461,3 @@ offset_bottom = 137.0
 theme_override_font_sizes/font_size = 50
 text = "1000"
 script = SubResource("GDScript_h2yge")
-
-[connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
