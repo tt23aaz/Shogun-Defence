@@ -49,7 +49,6 @@ var waves = [
 	]
 ]
 
-var wave_rewards = [20, 25, 30, 35, 40, 45, 50, 60, 75]
 
 func _ready() -> void:
 	Game.current_wave = 0
@@ -89,6 +88,7 @@ func spawn_wave(wave_data: Array) -> void:
 			add_child(temp_path)
 			await get_tree().create_timer(group["delay"]).timeout
 
+
 func enemy_removed() -> void:
 	Game.enemy_count -= 1
 	if Game.enemy_count < 0:
@@ -100,17 +100,16 @@ func enemy_removed() -> void:
 		else:
 			show_wave_complete()
 
-	if Game.enemy_count == 0 and not spawning_wave:
-		if Game.current_wave >= waves.size():
-			print("Map Complete")
-		else:
-			show_wave_complete()
-		
+var wave_rewards = [20, 25, 30, 35, 40, 45, 50, 55, 60, 75]
+
 func show_wave_complete() -> void:
 	var main = get_tree().current_scene
 	var panel = main.get_node("UI/Wave Completed")
 	var next_wave_button = main.get_node("UI/Next wave button")
-	var reward = 20
+
+	var reward := 0
+	if Game.current_wave - 1 < wave_rewards.size():
+		reward = wave_rewards[Game.current_wave - 1]
 
 	Game.can_place_towers = false
 	Game.Gold += reward
