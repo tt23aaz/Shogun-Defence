@@ -16,4 +16,4 @@ position = Vector2(64, 448)
 rotates = false
 loop = false
 
-[node name="EnemyArcher" parent="PathFollow2D" unique_id=1254133813 instance=ExtResource("1_i32tt")]
+[node name="EnemyNinja" parent="PathFollow2D" unique_id=1254133813 instance=ExtResource("1_i32tt")]

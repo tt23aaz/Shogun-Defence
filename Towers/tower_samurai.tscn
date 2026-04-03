@@ -15,13 +15,14 @@ radius = 315.0
 script/source = "extends CollisionShape2D
 
 
-# Called when the node enters the scene tree for the first time.
+# Called when the node enters the scene tree for the first time
 func _ready() -> void:
 	hide()
 
+# This draws the tower range onto the tower 
 func _draw():
 	var cen = Vector2(0,0)
-	var rad = get_parent().get_parent().range
+	var rad = get_parent().get_parent().tower_range
 	var col = Color(1,0,0,0.3)
 	draw_circle(cen,rad,col)
 "

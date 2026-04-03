@@ -21,7 +21,7 @@ offset_top = 60.000015
 offset_right = 203.33334
 offset_bottom = 286.66663
 theme_override_font_sizes/font_size = 65
-text = "30"
+text = "20"
 
 [node name="GoldCoin" type="Sprite2D" parent="C3d45Cff4d7a4a63B87941Fbcab32572" unique_id=575608166]
 position = Vector2(96.82303, 110.45344)
